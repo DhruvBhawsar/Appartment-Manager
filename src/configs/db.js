@@ -2,6 +2,6 @@ const mongoose = require("mongoose");
 
 module.exports = () => {
   return mongoose.connect(
-    "mongodb+srv://dhruv:dhruv@123@cluster0.kgzvk.mongodb.net/appartment?retryWrites=true&w=majority"
+    "mongodb+srv://dhruv:drv123@cluster0.on2yu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
   );
 };
