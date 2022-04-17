@@ -1,48 +1,44 @@
 const express = require("express");
+// const ApiFeatures = require("../utils/apifeatures");
+const Flat = require("../models/flat.model");
 const router = express.Router();
 
-const Flat = require("../model/flat.model");
-
-router.post("/", async (req, res) => {
-  const flat = new Flat(req.body);
+router.post("", async (req, res) => {
   try {
-    const newFlat = await flat.save();
-    res.status(201).json(newFlat);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+    const user = await Flat.create(req.body);
+    console.log(req.body);
+    return res.status(201).send(user);
+  } catch (e) {
+    return res.status(500).json({ message: e.message, status: "Failed" });
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("", async (req, res) => {
   try {
-    const page = parseInt(req.query.page) || 1;
-    const size = parseInt(req.query.size) || 5;
-    const skip = size * (page - 1);
+    const page = req.query.page || 1;
+    const size = req.query.size || 15;
 
-    const flats = await Flat.find().skip(skip).limit(size).lean().exec();
-    const totalPages = Math.ceil((await Flat.countDocuments().exec()) / size);
-    res.status(200).json({ flats, totalPages });
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+    // const query = { gender: "Female" };
+    const users = await Flat.find()
+      .skip((page - 1) * size)
+      .limit(size)
+      .lean()
+      .exec();
+
+    const totalPages = Math.ceil((await Flat.find().countDocuments()) / size);
+    return res.send({ users, totalPages });
+  } catch (er) {
+    return res.status(500).send(er.message);
   }
 });
 
-router.get("/:id", async (req, res) => {
-  try {
-    const flat = await Flat.findById(req.params.id);
-    res.status(200).json(flat);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
-
-router.delete("/:id", async (req, res) => {
-  try {
-    const deletedFlat = await Flat.findByIdAndDelete(req.params.id);
-    res.status(200).json(deletedFlat);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
+// router.get("/:id", async (req, res) => {
+//   try {
+//     const flat = await Flat.findById(req.params.id);
+//     return res.status(200).send(flat);
+//   } catch (e) {
+//     return res.status(500).json({ status: "Failled", message: e.message });
+//   }
+// });
 
 module.exports = router;

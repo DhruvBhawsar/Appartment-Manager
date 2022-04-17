@@ -1,11 +1,11 @@
 const express = require("express");
 const connect = require("./configs/db");
 const port = process.env.PORT || 8080;
-// const flatController = require("./controllers/flat.controller");
+const flatController = require("./controllers/flat.controller");
 
 const app = express();
 app.use(express.json());
-// app.use("/flat",flatController)
+app.use("/flat", flatController);
 
 app.listen(port, async () => {
   try {
