@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.0",
+    "expess": "^0.0.1-security",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.0",
+    "nodemon": "^2.0.15"
+  },
+  "name": "11.authentication",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DhruvBhawsar/Appartment-Manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DhruvBhawsar/Appartment-Manager/issues"
+  },
+  "homepage": "https://github.com/DhruvBhawsar/Appartment-Manager#readme",
+  "description": ""
+}
