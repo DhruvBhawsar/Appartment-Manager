@@ -1,6 +1,6 @@
 const express = require("express");
 const connect = require("./configs/db");
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 const flatController = require("./controllers/flat.controller");
 var cors = require("cors");
 
