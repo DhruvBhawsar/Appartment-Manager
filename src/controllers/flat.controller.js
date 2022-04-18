@@ -16,7 +16,7 @@ router.post("", async (req, res) => {
 router.get("", async (req, res) => {
   try {
     const page = req.query.page || 1;
-    const size = req.query.size || 15;
+    const size = req.query.size || 7;
 
     // const query = { gender: "Female" };
     const users = await Flat.find()
