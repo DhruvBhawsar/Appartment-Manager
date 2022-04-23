@@ -5,6 +5,7 @@ const flatController = require("./controllers/flat.controller");
 var cors = require("cors");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use("/flat", flatController);
 
@@ -14,7 +15,7 @@ const { register, login } = require("./controllers/auth.controller");
 app.post("/register", register);
 app.post("/login", login);
 
-app.use(cors());
+
 
 // app.use("users", userController);
 
