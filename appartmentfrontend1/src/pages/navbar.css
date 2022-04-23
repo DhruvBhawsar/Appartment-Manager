@@ -1,0 +1,20 @@
+#navbar126{
+    /* border: 1px solid black; */
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(195, 198, 219);
+}
+#navbar126>div{
+    height: 70px;
+    width: 25%;
+ 
+}
+#nav_logo{
+    height:70px
+}
+#btnlogn{
+  width: 50%;
+  padding: 10px;
+  
+}

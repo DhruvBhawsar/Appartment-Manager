@@ -1,0 +1,26 @@
+#pagination{
+    /* border: 1px solid black; */
+    width: fit-content;
+    margin: auto;
+    margin-top: 25px;
+}
+#flatimg{
+    height: 40px;
+    width: 110px;
+    padding: 0px;
+}
+/* #main{
+    /* margin-top: 10px; */
+/* } */
+#filterbuttons{
+    /* border: 1px solid black; */
+    display: flex;
+    /* gap: 20px */
+    justify-content: space-between;
+}
+#filterbuttons>div{
+    /* border: 1px solid black; */
+    height: 50px;
+    width: 25%;
+    margin-top: 8px;
+}
