@@ -32,12 +32,21 @@ router.get("", async (req, res) => {
   }
 });
 
-// router.get("/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
+  try {
+    const flat = await Flat.findById(req.params.id);
+    return res.status(200).send(flat);
+  } catch (e) {
+    return res.status(500).json({ status: "Failled", message: e.message });
+  }
+});
+
+// router.get("/:type", async (req, res) => {
 //   try {
-//     const flat = await Flat.findById(req.params.id);
+//     const flat = await Flat.find({ type: req.params.flatType }).lean.exec();
 //     return res.status(200).send(flat);
 //   } catch (e) {
-//     return res.status(500).json({ status: "Failled", message: e.message });
+//     return res.status(500).send(e.message);
 //   }
 // });
 
