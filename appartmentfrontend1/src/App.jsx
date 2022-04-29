@@ -16,10 +16,8 @@ function App() {
         <Route path="/" element={user ? <Flat /> : <Login />} />
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
-        {/* <Route path="/flat" element={<Flat />} /> */}
         <Route path="flat/:_id" element={<FlatDetails />} />
       </Routes>
-      {/* <Register /> */}
     </div>
   );
 }

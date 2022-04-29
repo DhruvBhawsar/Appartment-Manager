@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import Button from "@mui/material/Button";
+import { useSelector } from "react-redux";
 
 export const Navbar = () => {
+  const user = useSelector((state) => state.AuthReducer.loginUser);
+  const removeLogin = () => {
+    localStorage.removeItem("login_status");
+  };
   return (
     <div id="navbar126">
       <div>
@@ -18,12 +23,25 @@ export const Navbar = () => {
         <h4>APPARTMENT MANAGER</h4>
       </div>
       <div id="btnlogn">
-        <Link to="/login">
-          <Button variant="contained">login</Button>
-        </Link>
-        <Link to="/register">
-          <Button variant="contained">Register</Button>
-        </Link>
+        {user ? (
+          <Link to="/login">
+            <Button onClick={removeLogin} variant="contained">
+              logout
+            </Button>
+          </Link>
+        ) : (
+          <div>
+            {" "}
+            <Link to="/register">
+              <Button id="loginbtn" variant="contained">
+                Register
+              </Button>
+            </Link>
+            <Link to="/login">
+              <Button variant="contained">login</Button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
